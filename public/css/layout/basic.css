@@ -1,0 +1,41 @@
+
+body{
+    font-family: sans-serif;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+header{
+    background-color: aquamarine;
+}
+.container{
+    margin: auto;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 10px;
+}
+
+#nav-right ul li{
+    list-style: none;
+}
+#nav-right ul li a{
+    text-decoration: none;
+    color: black;
+}
+#nav-left li{
+    float: left;
+    list-style: none;
+    margin-right: 20px;
+}
+#nav-left ul li a{
+    text-decoration: none;
+    color: black;
+}
+
+footer{
+    text-align: center;
+}
+
+

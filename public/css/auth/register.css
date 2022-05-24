@@ -1,0 +1,76 @@
+
+        body{
+            margin: 0px;
+            padding: 0px;
+            background-image: url('https://images.unsplash.com/photo-1516616370751-86d6bd8b0651?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bW91bnQlMjBldmVyZXN0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60');
+            background-size: cover;
+            font-family: sans-serif;
+        }
+
+        .container{
+            height: 640px;
+            width: 320px;
+            background: #000;
+            color: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-sizing: border-box;
+            padding: 50px 30px;
+            opacity: 0.9;
+        }
+
+        h1{
+            margin: 0px;
+            margin-bottom: 10px;
+            padding: 0 0;
+            font-size: 22px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        input[type="text"], input[type="password"], input[type="number"] {
+        width: 100%;
+        padding: 10px 20px;
+        margin: 15px 0;
+        font-size: 14px;
+        background: transparent;
+        color: #fff;
+        border: none;
+        border-bottom: 1px solid #ccc;
+        box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+        background-color: #04AA6D;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 20px;
+        width: 100%;
+        border: none;
+        outline: none;
+        }
+
+        .container a{
+            text-align: center;
+            text-decoration: none;
+            color:darkgray;
+            display: block;
+            font-size: 12px;
+            line-height: 13px;
+            margin: 5px;
+        }
+        .container a:hover{
+            color: #ffc107;
+        }
+        label{
+            font-size: 15px;
+        }
+
+        .container input[type='submit']:hover{
+            cursor: pointer;
+            background: #01422b;
+        }

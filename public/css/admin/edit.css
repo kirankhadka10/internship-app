@@ -1,0 +1,73 @@
+body{
+    box-sizing: border-box;
+    font-family: sans-serif;
+    margin: 0px;
+    background-image: url('https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+}
+
+.btn{
+    background-color: coral;
+    text-decoration: none;
+    font-size: 15px;
+    color: black;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+}
+.btn-submit{
+    background-color: rgb(245, 33, 163);
+    text-decoration: none;
+    font-size: 15px;
+    color: black;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+}
+.btn:hover{
+    cursor: pointer;
+}
+
+.container{
+    width: 50%;
+    margin: auto;
+    
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.card-tools{
+    align-self: center;
+}
+
+.card-body div{
+    margin: 20px;
+}
+.card-body div input{
+    width: 100%;
+    padding: 10px 0px;
+    margin-top: 5px;
+    border-radius: 2px;
+    font-size: 14px;
+}
+
+label{
+    font-weight: bolder;
+}
+
+
+#btn-div{
+    display: flex;
+
+}
+#btn-div input{
+    align-self: center;
+}
