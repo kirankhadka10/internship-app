@@ -32,5 +32,7 @@ class UserSeeder extends Seeder
             'username'  =>  'user',
             'role'      =>  'User',
         ]);
+
+        User::factory()->times(25)->create();
     }
 }

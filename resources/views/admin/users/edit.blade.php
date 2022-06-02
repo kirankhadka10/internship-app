@@ -31,7 +31,7 @@
                 @method('PUT')
                 <div>
                     <label for="name">Enter Full Name</label>
-                    <input type="text" name="name" id="name" >
+                    <input type="text" name="name" id="name" value="{{$user->name}}" >
                 </div>
     
                 <div>

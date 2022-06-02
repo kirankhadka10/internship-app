@@ -18,15 +18,10 @@ body{
     border-radius: 10px;
     outline: none;
 }
+
 .btn-submit{
     background-color: rgb(245, 33, 163);
-    text-decoration: none;
-    font-size: 15px;
-    color: black;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 10px;
-    outline: none;
+    border-radius: 50%;
 }
 .btn:hover{
     cursor: pointer;
@@ -53,9 +48,10 @@ header{
 }
 .card-body div input{
     width: 100%;
-    padding: 10px 0px;
+    padding: 15px 0px;
     margin-top: 5px;
-    border-radius: 2px;
+    border: 0px;
+    border-radius: 5px;
     font-size: 14px;
 }
 
@@ -65,7 +61,7 @@ label{
 
 
 #btn-div{
-    display: flex;
+    display: grid;
 
 }
 #btn-div input{

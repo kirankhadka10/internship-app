@@ -25,7 +25,8 @@ class AuthController extends Controller
         'Admin',
     ];
 
-    public function index(){
+    public function index()
+    {
         $users = User::paginate(15);
         return view('admin.users.index',compact('users'));
     }
@@ -53,14 +54,13 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
         $remember_me = $request->has('remember_me') ? true : false;
 
-        if(Auth::attempt($credentials, $remember_me)){
+        if (Auth::attempt($credentials, $remember_me)) {
             $request->session()->regenerate();
             return redirect()->route('home');
 
         }
         
         return redirect()->route('login')->with('error','Invalid Credentials !');
-
     }
 
     public function register()
@@ -68,7 +68,8 @@ class AuthController extends Controller
         return view('auth.register');
     }
 
-    public function customRegister(Request $request){
+    public function customRegister(Request $request)
+    {
         $data = $request->validate([
             'name' => ['required'],
             'email' =>['required', 'email', 'unique:users,email'],
@@ -116,7 +117,7 @@ class AuthController extends Controller
     public function forgotPassword(User $user): View
     {
     
-        return view('auth.forgotpassword',compact('user'));
+        return view('auth.forgot-password',compact('user'));
     }
 
     public function verifyEmail(Request $request)
@@ -133,7 +134,8 @@ class AuthController extends Controller
         //  return redirect()->route('login');
     }
 
-    public function passwordReset (Request $request, $token) {
+    public function passwordReset (Request $request, $token) 
+    {
         
         return view('auth.resetPassword', compact('token'));
     }

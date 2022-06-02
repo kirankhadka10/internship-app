@@ -77,8 +77,19 @@
         background: rgb(223, 79, 63);
     }
 
+    #editbtn, #deletebtn{
+        display: inline-block;
+    }
     #btn-layout{
-        display: flex;
+        display: grid;
+    }
+
+    
+    #editbtn{
+    }
+   
+    #deletebtn{
+        float: right;    
     }
 </style>
 
@@ -117,9 +128,9 @@
                             <td>{{ $user->role }}</td>
                             <td>{{ $user->last_login_at->timezone('Asia/Kathmandu')->format('Y/m/d h:i:s A')}}</td>
                             <td id="btn-layout" >
-                                <a href="{{ route('admin.users.edit', $user->id)}}" class="btn">Edit</a>
+                                <a href="{{ route('admin.users.edit', $user->id)}}" id="editbtn" class="btn">Edit</a>
                                 
-                                <a href="#" onclick="confirmDelete({{ $user->id }})" class="btn" > Delete 
+                                <a href="#" onclick="confirmDelete({{ $user->id }})" id="deletebtn" class="btn" > Delete 
                                 </a>
     
                                 <form id="delete-form-{{ $user->id }}" action="{{ route('admin.users.destroy', $user) }}" method="POST">
