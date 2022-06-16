@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SiteController;
@@ -64,4 +65,13 @@ Route::post('/reset-password', [AuthController::class,'resetHandler'])
 Route::middleware(['auth','admin'])->name('admin.')->prefix('admin')->group(function(){
 Route::get('/',[\App\Http\Controllers\AuthController::class,'index'])->name('index');
 Route::resource('users',UserController::class);
+Route::resource('posts',PostController::class);
 });
+
+// Frontend
+
+Route::get('/', [\App\Http\Controllers\Frontend\PostController::class, 'index'])->name('welcome');
+
+Route::get('/post/{id}', [\App\Http\Controllers\Frontend\PostController::class, 'show']);
+Route::get('/create-post', [\App\Http\Controllers\Frontend\PostController::class,'create'])->name('create-post');
+Route::post('/save-post', [\App\Http\Controllers\Frontend\PostController::class, 'store'])->name('save-post')->middleware('auth');

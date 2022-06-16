@@ -23,6 +23,7 @@
                         @if (Route::has('login'))
                             @auth
                                 <li><a href="{{ route('logout') }}">Logout</a></li>
+                                <li><a href="{{ route('create-post') }}">Create Post</a> </li>
                                 @else
                                 <li><a href="{{ route('login') }}">Login</a></li>
                                 @if(Route::has('register'))
@@ -39,7 +40,7 @@
             
         </header>
         <main>
-            <div class="lost">
+            <div class="main-container">
                 @yield('content')
             </div>
         </main>

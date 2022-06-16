@@ -91,8 +91,8 @@ return [
     */
 
     'from' => [
-        'address' => 'khadkakiran18@gmail.com',
-        'name' => 'Kiran Khadka',
+        'address' => 'admin@admin.com',
+        'name' => 'Admin',
     ],
 
     /*

@@ -27,7 +27,7 @@ class UserSeeder extends Seeder
         User::create([
             'name'  =>  'User',
             'email' =>  'user@user.com',
-            'password'  =>  'password',
+            'password'  =>  bcrypt('password'),
             'phone'     =>  '9456245679',
             'username'  =>  'user',
             'role'      =>  'User',

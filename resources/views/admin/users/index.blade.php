@@ -91,6 +91,13 @@
     #deletebtn{
         float: right;    
     }
+    .card-tools{
+        display: flex;
+    }
+
+    .card-tools h3 a{
+        margin-right: 10px;
+    }
 </style>
 
 
@@ -104,9 +111,15 @@
             </div>
 
             <div class="card-tools">
+
+                <h3>
+                    <a href="{{ route('welcome')}}" style="color: white">Home</a>
+                </h3>
+
                 <h3>
                     <a href="{{ route('logout') }}" style="color: white">Logout</a>
                 </h3>
+              
             </div>
         </header>
     </div>

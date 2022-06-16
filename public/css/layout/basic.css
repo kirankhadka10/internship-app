@@ -1,9 +1,12 @@
-
+*{
+    box-sizing: border-box;
+}
 body{
     font-family: sans-serif;
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    background-color: beige;
 }
 
 header{
@@ -14,7 +17,12 @@ header{
     width: 80%;
     display: flex;
     justify-content: space-between;
-    padding: 20px 10px;
+    padding: 10px 10px;
+}
+
+.main-container{
+    margin: auto;
+    width: 80%;
 }
 
 #nav-right ul li{
@@ -34,7 +42,17 @@ header{
     color: black;
 }
 
+.card-body{
+    font-size: 15px;
+}
+
+.card-footer a{
+    font-size: 14px;
+    text-decoration: none;
+}
 footer{
+    background-color: aquamarine;
+    padding: 10px 20px;
     text-align: center;
 }
 

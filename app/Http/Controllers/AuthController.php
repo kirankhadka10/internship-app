@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\VerifyUser;
 use App\Mail\SendVerification;
 use App\Mail\UserVerified;
 use App\Models\User;
@@ -102,7 +103,8 @@ class AuthController extends Controller
     {
         $request->fulfill();
         $user = $request->user();
-        Mail::to($request->user())->send(new UserVerified($user));
+        Mail::to($request->user())->queue(new UserVerified($user));
+        // VerifyUser::dispatch($user);
         return redirect()->route('home');
     }
 
