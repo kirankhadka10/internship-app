@@ -30,7 +30,7 @@ class UserController extends Controller
         // $users = User::paginate(15);
         
         $users=  $this->userRepository->getAllUsers();
-        return view('admin.users.index',compact('users'));
+        return view('admin.users.index');
     }
 
     
