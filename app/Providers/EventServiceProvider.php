@@ -2,12 +2,16 @@
 
 namespace App\Providers;
 
+use App\Events\PasswordChanged;
 use App\Listeners\LoginListener;
 use Illuminate\Auth\Events\Login;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;
+use App\Listeners\PasswordResetListener;
+use Illuminate\Auth\Events\PasswordReset;
+use App\Listeners\PasswordChangedListener;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Event;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -23,6 +27,9 @@ class EventServiceProvider extends ServiceProvider
         Login::class => [
             LoginListener::class,
         ],
+        PasswordReset::class => [
+            PasswordResetListener::class,
+        ],
     ];
 
     /**
@@ -32,7 +39,7 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        
     }
 
     /**

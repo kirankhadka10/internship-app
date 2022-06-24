@@ -12,7 +12,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 
-class VerifyUser implements ShouldQueue
+class SendVerificationEmail implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -21,11 +21,9 @@ class VerifyUser implements ShouldQueue
      *
      * @return void
      */
+    public $user;
 
-     protected $user;
-
-
-    public function __construct(User $user)
+    public function __construct($user)
     {
         $this->user = $user;
     }
@@ -35,8 +33,8 @@ class VerifyUser implements ShouldQueue
      *
      * @return void
      */
-    public function handle(UserVerified $email)
-    {        
-         
+    public function handle()
+    {
+        Mail::to($this->user)->send(new UserVerified($this->user));
     }
 }

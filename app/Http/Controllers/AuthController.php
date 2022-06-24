@@ -2,22 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Jobs\VerifyUser;
-use App\Mail\SendVerification;
-use App\Mail\UserVerified;
+use App\Jobs\SendVerificationEmail;
 use App\Models\User;
+use App\Jobs\VerifyUser;
 use Illuminate\View\View;
+use App\Mail\UserVerified;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Password;
+use App\Mail\PasswordChangedNotification;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
-use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -103,8 +103,8 @@ class AuthController extends Controller
     {
         $request->fulfill();
         $user = $request->user();
-        Mail::to($request->user())->queue(new UserVerified($user));
-        // VerifyUser::dispatch($user);
+        SendVerificationEmail::dispatch($user);
+        // Mail::to($request->user())->queue(new UserVerified($user));
         return redirect()->route('home');
     }
 
@@ -117,9 +117,9 @@ class AuthController extends Controller
     }
 // Resetting the Password
     public function forgotPassword(User $user): View
-    {
-    
+    {    
         return view('auth.forgot-password',compact('user'));
+       
     }
 
     public function verifyEmail(Request $request)
@@ -133,6 +133,7 @@ class AuthController extends Controller
         return $status === Password::RESET_LINK_SENT ? back()->with(['status' => __($status)]) :
                             back()->withErrors(['email' => __($status)]);
 
+                            
         //  return redirect()->route('login');
     }
 
@@ -144,6 +145,7 @@ class AuthController extends Controller
 
     public function resetHandler(Request $request)
     {
+        
         $request->validate([
             'token' => 'required',
             'email' => 'required|email',
@@ -158,11 +160,11 @@ class AuthController extends Controller
                 ])->setRememberToken(Str::random(60));
      
                 $user->save();
-     
+
                 event(new PasswordReset($user));
             }
         );
-
+        // PasswordChange::dispatch($request);
         return redirect()->route('login');
         }
 

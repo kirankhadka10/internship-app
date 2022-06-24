@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 class PostController extends Controller
 {
     public function index(){
-        $posts = Post::all();
+        $posts = Post::with('user')->get();
         
         return view('home',compact('posts'));
     }
